@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PWD}
+
+  jpa:
+    show-sql: false
+
+logging:
+  level:
+    org.springframework.security: INFO
