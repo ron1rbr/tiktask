@@ -1,0 +1,20 @@
+INSERT INTO roles 
+(
+    id,
+    created_at,
+    updated_at,
+    name
+)
+VALUES
+(
+    uuid_generate_v4(),
+    NOW(),
+    NOW(),
+    'ROLE_USER'
+),
+(
+    uuid_generate_v4(),
+    NOW(),
+    NOW(),
+    'ROLE_ADMIN'
+);
