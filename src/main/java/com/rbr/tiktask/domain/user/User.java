@@ -39,7 +39,7 @@ public class User extends AuditableEntity {
     @Column(nullable = false)
     private Boolean emailVerified = false;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "user_roles",
         joinColumns = @JoinColumn(name = "user_id"),

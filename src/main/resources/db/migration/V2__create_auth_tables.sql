@@ -30,3 +30,5 @@ CREATE TABLE user_roles (
         FOREIGN KEY (role_id)
         REFERENCES roles(id)
 );
+
+CREATE INDEX idx_users_email ON users(email);
