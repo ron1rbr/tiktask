@@ -2,6 +2,7 @@ package com.rbr.tiktask.service.impl;
 
 import java.util.UUID;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +26,7 @@ public class UserServiceImpl implements UserService {
     
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public User create(String name, String email, String password) {
@@ -44,7 +46,7 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setName(name.trim());
         user.setEmail(normalized);
-        user.setPassword(password);
+        user.setPassword(passwordEncoder.encode(password));
         user.setStatus(UserStatus.PENDING_VERIFICATION);
         user.getRoles().add(role);
 
